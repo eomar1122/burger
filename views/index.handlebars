@@ -1,38 +1,48 @@
-<h1>Burgers!</h1>
-
-<h2>Burgers that are not devoured!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers that are devoured!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a urger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">urger Name:</label>
-    <input type="text" id="ca" name="name">
+<div class="jumbotron text-center">
+  <h1>Eat Da Burgers</h1>
+</div>
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4">
+    <img src="/assets/images/cute-burger.jpg" class="img-responsive" alt="Responsive image">
   </div>
+</div>
 
-  <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Awake
+<div class="row">
+  <div class="col-lg-4 col-sm-12"></div>
+  <div class="col-lg-4 col-sm-12">
+    <h2>Burgers to Eat</h2>
+
+    <ul>
+      {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block devoured=true}} {{/unless}} {{/each}}
+    </ul>
   </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-lg-4 col-sm-12"></div>
+  <div class="col-lg-4 col-sm-12">
+    <h2>Burgers Eaten</h2>
 
-  <button type="submit">Add urger</button>
-</form>
+    <ul>
+      {{#each burgers}} {{#if devoured}}
+      <li>{{burger_name}}</li>
+      {{/if}} {{/each}}
+    </ul>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-lg-4 col-sm-12"></div>
+  <div class="col-lg-4 col-sm-12">
+    <h2>Add a Burger</h2>
+    <form class="create-form">
+      <div class="form-group">
+        <label for="burger_name">What kind of burger do you want to eat?</label>
+        <br>
+        <textarea id="name" name="burger_name" required="burger to devour"></textarea>
+      </div>
+      <button class="btn btn-success" type="submit">Add Burger</button>
+    </form>
+  </div>
+</div>
